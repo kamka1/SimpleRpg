@@ -1,9 +1,5 @@
 # SimpleRpg
 
-Zespół projektowy:
-- Kamil Góral(77398)
-- Hubert Wyszyński(77291)
-
 Nazwa projektu: "Simple RPG"
 Gra RPG typu hack and slash, w której gracz wciela się w postać bohatera podróżującego przez świat, walczącego z potworami, zbierającego przedmioty i rozwijającego swoje umiejętności.
 
