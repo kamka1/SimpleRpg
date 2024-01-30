@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[SerializeField] private Material whiteFlashMat;
+[SerializeField] private float restoreDefaultMatTime = .2f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+private Material defaultMat;
+private SpriteRenderer spriteRenderer;
+
+private void Awake(){
+    spriteRenderer = GetComponent<SpriteRenderer>();
+    defaultMat = spriteRenderer.material;
+}
+
+public float GetRestoreMatTime(){
+    return restoreDefaultMatTime;
+}
+
+public IEnumerator FlashRoutine() {
+    spriteRenderer.material = whiteFlashMat;
+    yield return new WaitForSeconds(restoreDefaultMatTime);
+    spriteRenderer.material = defaultMat;
+}
 }
