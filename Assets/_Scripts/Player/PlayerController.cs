@@ -17,6 +17,7 @@ public class PlayerController : Singleton<PlayerController>
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer spriteRenderer;
+    private Knockback knockback;
     private float startingMoveSpeed;
 
     private bool facingLeft = false;
@@ -29,12 +30,15 @@ public class PlayerController : Singleton<PlayerController>
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();   
         myAnimator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();     
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        knockback = GetComponent<Knockback>();    
     }
 
     private void Start() {
         playerControls.Combat.Dash.performed += _ => Dash();
         startingMoveSpeed = moveSpeed;
+
+        ActiveInventory.Instance.EquipStartingWeapon();
     }
 
     private void OnEnable() {
@@ -61,6 +65,8 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     private void Move() {
+        if(knockback.GettingKnockedBack) { return; }
+
         rb.MovePosition(rb.position + movement *(moveSpeed * Time.fixedDeltaTime));
     }
 

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a28cd12e5bd6744095e944061555f09, type: 3}
-  m_Name: Staff
+  m_Name: Empty Slot
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 7456204694114802458, guid: 74cf3d92058906341b0ed13f4e8a2d09, type: 3}
-  weaponCooldown: 1.2
-  weaponDamage: 1
+  weaponPrefab: {fileID: 7456204694114802458, guid: 010dec37249b0654190f89a6e0cbe877, type: 3}
+  weaponCooldown: 0
+  weaponDamage: 0
