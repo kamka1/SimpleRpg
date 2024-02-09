@@ -15,7 +15,6 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void Start(){
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
-        //ToggleActiveHighlight(0);
     }
 
     private void OnEnable(){
@@ -41,6 +40,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
     }
 
     private void ChangeActiveWeapon() {
+        if (PlayerHealth.Instance.IsDead) {return;}
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null){
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject); 
         }

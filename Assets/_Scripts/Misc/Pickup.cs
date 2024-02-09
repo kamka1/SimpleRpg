@@ -27,7 +27,7 @@ public class Pickup : MonoBehaviour
             moveSpeed += accelartionRate;
         } else {
             moveDir = Vector3.zero;
-            moveSpeed = 0;
+            moveSpeed = 0f;
         }
     }
     private void FixedUpdate(){
@@ -43,16 +43,15 @@ public class Pickup : MonoBehaviour
     switch(pickUpType)
     {
         case PickUpType.GoldCoin:
-        //dsada
-        Debug.Log("Gold");
+        EconomyManager.Instance.UpdateCurrentGold();
         break;
         case PickUpType.HealthGlobe:
         PlayerHealth.Instance.HealPlayer();
-        Debug.Log("Helth");
         break;
         case PickUpType.StaminaGlobe:
-        Debug.Log("Stamina ");
-        //sdasda
+        Stamina.Instance.RefreshStamina();
+        break;
+        default:
         break;
     }
   }
